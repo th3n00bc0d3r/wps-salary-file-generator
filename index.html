@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WPS File Generator</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Flatpickr Calendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">WPS File Generator</h1>
+    <form id="wpsForm" class="mt-4">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="employerId" class="form-label">Employer Unique ID</label>
+          <input type="text" id="employerId" class="form-control" placeholder="Enter ID (e.g., 2498082)" maxlength="13" required>
+        </div>
+        <div class="col-md-6">
+          <label for="routingCodeEmployer" class="form-label">Employer Bank Routing Code</label>
+          <input type="text" id="routingCodeEmployer" class="form-control" placeholder="9 digits" maxlength="9" required>
+        </div>
+      </div>
+
+      <h5>Employee Details</h5>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="employeeId" class="form-label">Employee Unique ID</label>
+          <input type="text" id="employeeId" class="form-control" placeholder="14 characters" maxlength="14" required>
+        </div>
+        <div class="col-md-6">
+          <label for="routingCodeEmployee" class="form-label">Employee Bank Routing Code</label>
+          <input type="text" id="routingCodeEmployee" class="form-control" placeholder="9 digits" maxlength="9" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="iban" class="form-label">Employee IBAN</label>
+        <input type="text" id="iban" class="form-control" placeholder="23 characters" maxlength="23" required>
+      </div>
+
+      <h5>Salary Details</h5>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="payStartDate" class="form-label">Pay Start Date</label>
+          <input type="text" id="payStartDate" class="form-control calendar" required>
+        </div>
+        <div class="col-md-6">
+          <label for="payEndDate" class="form-label">Pay End Date</label>
+          <input type="text" id="payEndDate" class="form-control calendar" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="fixedIncome" class="form-label">Fixed Income (AED)</label>
+          <input type="number" id="fixedIncome" class="form-control" step="0.01" required>
+        </div>
+        <div class="col-md-4">
+          <label for="variableIncome" class="form-label">Variable Income (AED)</label>
+          <input type="number" id="variableIncome" class="form-control" step="0.01" value="0" required>
+        </div>
+        <div class="col-md-4">
+          <label for="daysLeave" class="form-label">Days on Leave Without Pay</label>
+          <input type="number" id="daysLeave" class="form-control" value="0" required>
+        </div>
+      </div>
+
+      <h5>File Details</h5>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="fileCreationDate" class="form-label">File Creation Date</label>
+          <input type="text" id="fileCreationDate" class="form-control calendar" required>
+        </div>
+        <div class="col-md-6">
+          <label for="fileCreationTime" class="form-label">File Creation Time</label>
+          <input type="time" id="fileCreationTime" class="form-control" required>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary w-100" onclick="generateFile()">Generate WPS File</button>
+    </form>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="script.js"></script>
+
+  <!-- Bootstrap 5 JavaScript CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
